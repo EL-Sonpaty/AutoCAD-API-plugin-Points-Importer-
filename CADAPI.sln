@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33205.214
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CADAPI", "CADAPI\CADAPI.csproj", "{ECE2D9BD-10B4-4015-BA5C-D43CEE8ECEDF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ECE2D9BD-10B4-4015-BA5C-D43CEE8ECEDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECE2D9BD-10B4-4015-BA5C-D43CEE8ECEDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECE2D9BD-10B4-4015-BA5C-D43CEE8ECEDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECE2D9BD-10B4-4015-BA5C-D43CEE8ECEDF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {39556E9F-8087-4170-9DF1-10068C7AACAE}
+	EndGlobalSection
+EndGlobal

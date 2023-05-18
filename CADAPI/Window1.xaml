@@ -1,0 +1,405 @@
+﻿<Window x:Class="CADAPI.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CADAPI"
+        mc:Ignorable="d"
+        
+        
+        Title="Window1" 
+        Height="600" 
+        Width="1000" 
+         ResizeMode="NoResize" 
+        WindowStartupLocation="CenterScreen"
+        AllowsTransparency="True"
+        WindowStyle="None"
+         Background="Transparent"
+        MouseDown="Window_MouseDown">
+
+
+    <!--#region Resources-->
+    <Window.Resources>
+        <!--#region Digits_Style-->
+
+        <Style TargetType="Button" x:Key="Digits"  >
+
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+
+                            <Rectangle
+                        Fill="#FF544E4E"
+                        Height="70"
+                        Width="170"
+                        StrokeThickness="2"
+                        Stroke="Black" OpacityMask="DarkRed"/>
+                            <ContentPresenter 
+                            HorizontalAlignment="Center" 
+                            VerticalAlignment="Center"/>
+
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+
+
+
+            </Setter>
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="FontStyle" Value="Italic"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="BorderBrush" Value="Transparent" />
+            <Setter Property="Border.Background" Value="Blue"/>
+
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <Grid>
+                                    <Rectangle
+                                     Fill="#FF544E4E"
+                                      Height="75"
+                                      Width="175"
+                                     StrokeThickness="2"
+                                     Stroke="Black" OpacityMask="DarkRed"/>
+                                    <ContentPresenter 
+                                    HorizontalAlignment="Center" 
+                                    VerticalAlignment="Center"/>
+                                </Grid>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <Grid>
+                                    <Rectangle
+                                     Fill="DarkRed"
+                                      Height="75"
+                                      Width="175"
+                                     StrokeThickness="2"
+                                     Stroke="Black" OpacityMask="DarkRed"/>
+                                    <ContentPresenter 
+                                    HorizontalAlignment="Center" 
+                                    VerticalAlignment="Center"/>
+                                </Grid>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <!--#endregion-->
+
+
+        <!--#region Equal_Button_Style-->
+        <Style TargetType="Button" x:Key="Equal_Button" >
+
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+
+                            <Rectangle
+                        Fill="#FF2B75CC"
+                        Height="50"
+                        Width="280"
+                        StrokeThickness="2"
+                        Stroke="Black" OpacityMask="DarkRed"/>
+                            <ContentPresenter 
+                            HorizontalAlignment="Center" 
+                            VerticalAlignment="Center"/>
+
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+
+
+
+            </Setter>
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="FontStyle" Value="Italic"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="BorderBrush" Value="Transparent" />
+            <Setter Property="Border.Background" Value="Blue"/>
+
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <Grid>
+                                    <Rectangle
+                                     Fill="#FF2B75CC"
+                                     Height="55"
+                                     Width="285"
+                                     StrokeThickness="2"
+                                     Stroke="Black" OpacityMask="DarkRed"/>
+                                    <ContentPresenter 
+                                    HorizontalAlignment="Center" 
+                                    VerticalAlignment="Center"/>
+                                </Grid>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <Grid>
+                                    <Rectangle
+                                     Fill="#FF2B75CC"
+                                     Height="55"
+                                     Width="285"
+                                     StrokeThickness="2"
+                                     Stroke="Black" OpacityMask="DarkRed"/>
+                                    <ContentPresenter 
+                                    HorizontalAlignment="Center" 
+                                    VerticalAlignment="Center"/>
+                                </Grid>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <!--#endregion-->
+
+
+        <!--#region Operations_Style-->
+        <Style TargetType="Button" x:Key="Operations" >
+
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+
+                            <Rectangle
+                        Fill="#FF171414"
+                        Height="70"
+                        Width="120"
+                        StrokeThickness="2"
+                        Stroke="Black" OpacityMask="DarkRed"/>
+                            <ContentPresenter 
+                            HorizontalAlignment="Center" 
+                            VerticalAlignment="Center"/>
+
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+
+
+
+            </Setter>
+            <Setter Property="FontSize" Value="23" />
+            <Setter Property="FontStyle" Value="Italic"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="BorderBrush" Value="Transparent" />
+            <Setter Property="Border.Background" Value="Blue"/>
+
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <Grid>
+                                    <Rectangle
+                                     Fill="#FF171414"
+                                      Height="75"
+                                      Width="125"
+                                     StrokeThickness="2"
+                                     Stroke="Black" OpacityMask="DarkRed"/>
+                                    <ContentPresenter 
+                                    HorizontalAlignment="Center" 
+                                    VerticalAlignment="Center"/>
+                                </Grid>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <Grid>
+                                    <Rectangle
+                                     Fill="#FF171414"
+                                      Height="75"
+                                      Width="125"
+                                     StrokeThickness="2"
+                                     Stroke="Black" OpacityMask="DarkRed"/>
+                                    <ContentPresenter 
+                                    HorizontalAlignment="Center" 
+                                    VerticalAlignment="Center"/>
+                                </Grid>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <!--#endregion-->
+
+
+
+
+
+
+
+
+
+
+
+        <!--Add images for button mouse over event-->
+        <ImageBrush x:Key="close_icon" ImageSource="Assets/close_hover.png" Stretch="None"/>
+
+        <Style x:Key="FocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Margin="2" SnapsToDevicePixels="true" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" StrokeThickness="1" StrokeDashArray="1 2"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD"/>
+        <SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF3C7FB1"/>
+        <SolidColorBrush x:Key="Button.Pressed.Background" Color="#FFC4E5F6"/>
+        <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF2C628B"/>
+        <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
+        <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
+        <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
+
+
+        <Style x:Key="closeBtnStyle" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource close_icon}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource close_icon}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <!--#endregion-->
+
+
+
+    <!--#region Mine-->
+    <Border CornerRadius="30" BorderThickness="10" BorderBrush="#404751" Padding="5" Background="#404751">
+        <Grid >
+            <Grid.Background>
+                <SolidColorBrush Color="#404751"/>
+            </Grid.Background>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+
+            <TextBlock  Foreground="White"  Text="        Reference Point :             X =                ,  Y =                ,  Z =                ,"  VerticalAlignment="Center" Height="40"  
+                        Grid.Row="1"  
+                   Grid.Column="0"  FontSize="28" FontStyle="Italic" FontWeight="Bold" Grid.ColumnSpan="2"   />
+
+
+
+
+            <Button HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="Exit" Content="Cancel" Grid.Column="1" Grid.Row="2" 
+                    Style="{StaticResource Operations}" Click="Exit_Click"  />
+            <Button HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="Execute" Content="Execute" Grid.Column="0" Grid.Row="2" 
+                    Style="{StaticResource Operations}" Click="Execute_Click"  />
+
+
+
+            <Button HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="Import" Content="Import Excel file" Grid.ColumnSpan="2" Grid.Column="0" Grid.Row="0" 
+                    Style="{StaticResource Digits}" Click="Import_Click"   />
+
+            <TextBox  VerticalAlignment="Bottom" x:Name="filepath" Height="40"  Grid.Row="0" 
+                   Grid.Column="0" Grid.ColumnSpan="2" IsReadOnly="True" BorderBrush="Transparent" FontSize="20" Margin="0,0,10,0"   />
+
+
+            <Button HorizontalAlignment="Center" VerticalAlignment="Bottom" x:Name="Change_Points_Styles" Content="Change Points Style" Grid.Row="1"
+                    
+                    Grid.ColumnSpan="2"  Style="{StaticResource Equal_Button}" Click="Change_Points_Style" />
+
+
+
+
+
+            <Canvas>
+                <Button Height="75" Width="75" Canvas.Left="897"
+                        BorderThickness="0" Style="{DynamicResource closeBtnStyle}" Canvas.Top="-5"
+                        Name="Close"
+                        Click="Close_Click"  >
+                    <Button.Background>
+                        <ImageBrush ImageSource="Assets/close_default.png" Stretch="None"/>
+                    </Button.Background>
+
+                </Button>
+            </Canvas>
+            <TextBox Text="0" TextAlignment="Center" VerticalContentAlignment="Center" FontSize="35" Height="50" Width="90"   x:Name="Yvalue"  Grid.Row="1" 
+                   Grid.Column="1"  BorderBrush="Transparent"  Margin="143,65,252,75"   />
+            <TextBox Text="0" TextAlignment="Center" VerticalContentAlignment="Center" FontSize="35" Height="50" Width="90"   x:Name="Xvalue"  Grid.Row="1"  BorderBrush="Transparent"  Margin="435,65,445,75" Grid.ColumnSpan="2"   />
+            <TextBox Text="0" TextAlignment="Center" VerticalContentAlignment="Center" FontSize="35" Height="50" Width="90"   x:Name="Zvalue"  Grid.Row="1" 
+                Grid.Column="1"  BorderBrush="Transparent"  Margin="329,65,66,75"   />
+        </Grid>
+    </Border>
+    <!--#endregion-->
+
+
+
+
+
+
+
+
+
+
+</Window>
